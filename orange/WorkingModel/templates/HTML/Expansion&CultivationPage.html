@@ -1,0 +1,272 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'CSS/bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'CSS/PagesCss/stepper.css'%}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M-5</title>
+  </head>
+  <body>
+    <div id="contentArea">
+      <!----------------------------------------------- NAVBAR START------------------------------ -->
+      <nav
+        class="navbar navbar-dark"
+        style="width: 100%; height: 60px; background-color: black"
+      >
+        <div class="container-fluid">
+          <img
+            src="{% static 'Images/logo_new_transp 1.png'%}"
+            style="height: 45px; width: 36px"
+          />
+        </div>
+      </nav>
+      <!-- -----------------------------------------------NAVBAR END--------------------------------- -->
+      <!-- -----------------------------------------------Expansion And Cutivation page  : PAGE START------------------------------------------------------------ -->
+      <div
+        id="model-delete-Page"
+        style="
+          display: flex;
+          width: 100%;
+          height: 100%;
+          /* height: calc(100vh - 64px); */
+          overflow-y: scroll;
+          scrollbar-width: none;
+        "
+      >
+        {% comment %} <!---------------------Div-1-Start-------------------------------> {% endcomment %}
+        {% comment %} <!---------------------Div-1-Start-------------------------------> {% endcomment %}
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            /* gap: 15px; */
+
+            width: 75%;
+            height: 100%;
+            padding: 10px;
+          "
+        >
+          <div style="margin-top: 20px; margin-left: 30px">
+            <div>
+              <p style="font-size: 18px; font-weight: 500; color: red">
+                current status
+              </p>
+              <h4>Expansion and cultivation situation</h4>
+            </div>
+            {% if errors %}
+              <div style="color: red; margin-bottom: 10px;">
+                {% for error in errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
+            <form method="post" action="{% url 'expansion_and_cultivation' %}">
+              {% csrf_token %}
+              <div style="margin-top: 20px">
+                <p style="font-size: 13px; margin-bottom: 0; font-weight: 500">
+                  Basement Cellar
+                </p>
+                <select
+                  name="basement_cellar"
+                  class="form-select"
+                  aria-label="Default select example"
+                  style="
+                    width: 450px;
+                    margin-top: 2px;
+                    font-size: 13px;
+                    height: 50px;
+                    border-bottom: 2px solid #46a1b5;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                  "
+                >
+                  <option value="" disbaled selected hidden>Basement unheated</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div style="margin-top: 20px">
+                <p style="font-size: 13px; margin-bottom: 0; font-weight: 500">
+                  Roof
+                </p>
+                <select
+                  name="roof"
+                  class="form-select"
+                  aria-label="Default select example"
+                  style="
+                    width: 450px;
+                    margin-top: 2px;
+                    font-size: 13px;
+                    height: 50px;
+                    border-bottom: 2px solid #46a1b5;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                  "
+                >
+                  <option value="" disbaled selected hidden>Attic unheated</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div style="display: flex; gap: 10px">
+                <button class="mt-5" style="border-radius: 10px; width: 130px; padding: 8px; font-weight: 500; border: none; background-color: #3284ff; color: #ffff; padding: 14px;">
+                  <a href="{% url 'general_info' %}" style="text-decoration: none; color: white;">Back</a>
+                </button>
+                <button type="submit" class="mt-5" style="border-radius: 10px; width: 130px; padding: 8px; font-weight: 500; border: none; background-color: #3284ff; color: #ffff;">
+                  Next Step
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- ------------------[  DIV 1  END] ------------------------------->
+
+
+
+
+        
+        <!------------------------------------ STEPPER START------------------------------------------------- -->
+        <div style="width: 25%; margin-top: 40px">
+          <div class="steps">
+            <div class="step">
+              <div class="step-header">
+                <div class="header">Modeling</div>
+              </div>
+
+              <div class="step-content one">
+                <!-- <button class="next-btn">Next</button> -->
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">Building</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">HVAC</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">Refurb</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">Renovation</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">Results</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ----------------------------------STEPPER END------------------------------------------------------------ -->
+      </div>
+      <!-- -----------------------------------------------MODEL DELETE: PAGE END------------------------------------------------------------ -->
+      <!-- -----------------------------------------------FOOTER START------------------------------------------------------------ -->
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          background-color: black;
+          color: white;
+          height: 40px;
+        "
+      >
+        <p style="font-size: 10px; text-align: center; margin-top: 6px">
+          Copyright &copy; 2024. All rights reserved.
+        </p>
+      </div>
+      <!-- -----------------------------------------------FOOTER END------------------------------------------------------------ -->
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      let curOpen;
+
+      $(document).ready(function () {
+        curOpen = $(".step")[0];
+
+        $(".next-btn").on("click", function () {
+          let cur = $(this).closest(".step");
+          let next = $(cur).next();
+          $(cur).addClass("minimized");
+          setTimeout(function () {
+            $(next).removeClass("minimized");
+            curOpen = $(next);
+          }, 400);
+        });
+
+        $(".close-btn").on("click", function () {
+          let cur = $(this).closest(".step");
+          $(cur).addClass("minimized");
+          curOpen = null;
+        });
+
+        $(".step .step-content").on("click", function (e) {
+          e.stopPropagation();
+        });
+
+        $(".step").on("click", function () {
+          if (!$(this).hasClass("minimized")) {
+            curOpen = null;
+            $(this).addClass("minimized");
+          } else {
+            let next = $(this);
+            if (curOpen === null) {
+              curOpen = next;
+              $(curOpen).removeClass("minimized");
+            } else {
+              $(curOpen).addClass("minimized");
+              setTimeout(function () {
+                $(next).removeClass("minimized");
+                curOpen = $(next);
+              }, 300);
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

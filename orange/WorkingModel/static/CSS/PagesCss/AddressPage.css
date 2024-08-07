@@ -1,0 +1,11 @@
+@media screen and (max-width: 600px) {
+  .address-input-div {
+    width: 100%;
+  }
+  .address-title-h3 {
+    font-size: 24px;
+  }
+  .address-center-div {
+    width: 100% !important;
+  }
+}

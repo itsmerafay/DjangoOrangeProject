@@ -1,0 +1,98 @@
+{% load static %} {% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'CSS/bootstrap.min.css'%}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M-1</title>
+  </head>
+  <body>
+    <div id="contentArea">
+      <!----------------------------------------------- NAVBAR START------------------------------ -->
+      <nav
+        class="navbar navbar-dark"
+        style="width: 100%; height: 60px; background-color: black"
+      >
+        <div class="container-fluid">
+          <img
+            src="{% static 'Images/logo_new_transp 1.png' %}"
+            style="height: 45px; width: 36px"
+          />
+        </div>
+      </nav>
+      <!-- -----------------------------------------------NAVBAR END--------------------------------- -->
+      <!-- -----------------------------------------------MODEL 1: PAGE START------------------------------------------------------------ -->
+      <div
+        id="addressPage"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          /* height: 100%; */
+          /* height: calc(100vh - 64px); */
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            /* justify-content: center; */
+            align-items: center;
+            width: 80%;
+            height: 95%;
+            /* border: 1px solid black; */
+          "
+        >
+          <h3 style="color: #252525; font-weight: bolder; margin-top: 20px">
+            Find your 3D building
+          </h3>
+          <div>
+            <img
+              src="{% static 'Images/3dhouse 1.png'%}"
+              style="height: 300px; width: 400px; padding: 20px"
+            />
+          </div>
+          <p style="font-size: 12px">
+            Wrong building Or 3D capture not possible?<span
+              style="font-weight: 500"
+            >
+              Continue here</span
+            >
+          </p>
+          <form method="post" action="{% url 'delete_model_page' %}">
+            {% csrf_token %}
+            <button id="nextButton" type="submit" class="btn btn-primary" style="border-radius: 30px; width: 150px; padding: 10px; font-weight: 500;">Continue</button>
+        </form>
+        
+        </div>
+      </div>
+      <!-- -----------------------------------------------MODEL 1: PAGE END------------------------------------------------------------ -->
+      <!-- -----------------------------------------------FOOTER START------------------------------------------------------------ -->
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          background-color: black;
+          color: white;
+          height: 40px;
+        "
+      >
+        <p style="font-size: 10px; text-align: center; margin-top: 6px">
+          Copyright &copy; 2024. All rights reserved.
+        </p>
+      </div>
+      <!-- -----------------------------------------------FOOTER END------------------------------------------------------------ -->
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

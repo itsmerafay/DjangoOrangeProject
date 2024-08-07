@@ -1,0 +1,53 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'CSS/bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'CSS/PagesCss/AddressPage.css'%}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+<div id="contentArea">
+    <nav class="navbar navbar-dark" style="width: 100%; height: 60px; background-color: black">
+        <div class="container-fluid">
+            <img src="{% static 'Images/logo_new_transp 1.png'%}" style="height: 45px; width: 36px" />
+        </div>
+    </nav>
+    <form id="addressForm" method="post" action="{% url 'address_page' %}">
+        <div id="addressPage" style="display: flex; justify-content: center; align-items: center; width: 100%; margin-bottom: 40px; overflow-y: auto;">
+            <div class="address-center-div" style="display: flex; flex-direction: column; gap: 20px; align-items: center; width: 80%;">
+                <h3 class="address-title-h3" style="color: #3284ff; font-weight: bolder; margin-top: 50px">Welcome to your Project</h3>
+                <p style="text-align: center; font-size: 14px; font-weight: 500">Goodbye energy and Hello sustainability</p>
+                <h4>Please enter your full address</h4>
+                {% csrf_token %}
+                {% if errors %}
+                <div style="color: red; margin-bottom: 10px;">
+                    {% for error in errors %}
+                    <p style="margin-bottom:-2rem;">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <input id="addressInput" class="address-input-div" name="address" style="display: flex; justify-content: center; align-items: center; margin-top: 20px; width: 50%; height: 40px; border: 1px solid #454545; border-radius: 30px; text-align: center;" />
+                <div style="display: flex; gap: 10px; margin-top: 30px">
+                    <p style="color: #454545; font-weight: 500">Street</p>
+                    <span>|</span>
+                    <p style="color: #454545; font-weight: 500">Number</p>
+                    <span>|</span>
+                    <p style="color: #454545; font-weight: 500">Postcode</p>
+                </div>
+                <button id="nextButton" type="submit" class="btn btn-primary" style="border-radius: 30px; width: 150px; padding: 10px; font-weight: 500;">Continue</button>
+            </div>
+        </div>
+    </form>
+
+    <div style="bottom: 0; position: absolute; display: flex; justify-content: center; align-items: center; width: 100%; background-color: black; color: white; height: 40px;">
+        <p style="font-size: 10px; text-align: center; margin-top: 6px">Copyright &copy; 2024. All rights reserved.</p>
+    </div>
+</div>
+
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+</body>
+</html>

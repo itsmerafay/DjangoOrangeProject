@@ -1,0 +1,291 @@
+{% load static %} {% csrf_token %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'CSS/bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'CSS/PagesCss/stepper.css'%}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M-3</title>
+  </head>
+  <body>
+    <div
+      id="contentArea"
+    >
+      <!----------------------------------------------- NAVBAR START------------------------------ -->
+      <nav
+        class="navbar navbar-dark"
+        style="width: 100%; height: 60px; background-color: black"
+      >
+        <div class="container-fluid">
+          <img
+            src="{% static 'Images/logo_new_transp 1.png'%}"
+            style="height: 45px; width: 36px"
+          />
+        </div>
+      </nav>
+      <!-- -----------------------------------------------NAVBAR END--------------------------------- -->
+      <!-- -----------------------------------------------MODEL DELETE: PAGE START------------------------------------------------------------ -->
+      <div
+        id="model-delete-Page"
+        style="
+          display: flex;
+          width: 100%;
+          /* height: 100%; */
+          /* height: calc(100vh - 64px); */
+          overflow-y: scroll;
+          scrollbar-width: none;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            width: 30%;
+            /* height: 100%; */
+            padding: 10px;
+          "
+        >
+          <h4
+            style="
+              color: #252525;
+              font-weight: bolder;
+              margin-top: 20px;
+              margin-left: 30px;
+            "
+          >
+            Customize Window Size
+          </h4>
+          <div
+            style="
+              display: flex;
+              /* justify-content: center; */
+              height: 350px;
+              width: 500px;
+              align-items: center;
+            "
+          >
+            <img
+              src="{% static '/Images/3dhouse2 1.png'%}"
+              style="height: 300px; width: 350px"
+            />
+          </div>
+          <!-- <div>
+            <img
+              src="/Images/3dhouse 1.png"
+              style="height: 300px; width: 400px; padding: 20px"
+            />
+          </div> -->
+          <p style="font-size: 11px; margin-left: 30px">
+            Wrong building Or 3D capture not possible?<span
+              style="font-weight: 500"
+            >
+              Continue here</span
+            >
+          </p>
+          
+          <form method="post" action="{% url 'general_info' %}" >
+            {% csrf_token %}
+                <button id="nextButton" type="submit" class="btn btn-primary"style="border-radius: 30px; width: 150px;  padding: 10px;  font-weight: 500;  margin-left: 30px;">
+                  Continue
+                </button>
+          </form> 
+        </div>
+        <!-- ------------------[  DIV 1  END] ------------------------------->
+        <!-- ------------------[  DIV 2  START] ------------------------------->
+        <div
+          style="
+            width: 60%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 100px;
+            /* border: 1px solid yellow; */
+          "
+        >
+          <div style="width: 70%">
+            <p style="font-size: 19px; font-weight: 700; color: #454545">
+              Current values from a Standard, you can easily change them. Simply
+              enter the actual area
+            </p>
+            <p  style="color: #808080;font-size: 18px;text-align: center;font-weight: 500;margin-top: 30px;">Change here</p>
+            <div style="display: flex;">
+              
+              <div style="width: 40%; ;display: flex;flex-direction: column;gap: 23px;">
+                <h5 style="font-weight: bold;display: flex;align-items: center;gap: 15px;">
+                  Site A
+                  <div style=" height: 8px; width: 8px; background-color: #28D362 ; "></div>
+                </h5>
+                <h5 style="font-weight: bold;display: flex;align-items: center;gap: 15px;">
+                  Site B
+                  <div style=" height: 8px; width: 8px; background-color: #4A28D3 ; "></div>
+                </h5>
+                <h5 style="font-weight: bold;display: flex;align-items: center;gap: 15px;">
+                  Site C
+                  <div style=" height: 8px; width: 8px; background-color: #FF9F0F ; "></div>
+                </h5>
+                </h5>
+                <h5 style="font-weight: bold;display: flex;align-items: center;gap: 15px;">
+                  Site D
+                  <div style=" height: 8px; width: 8px; background-color: #0066FF ; "></div>
+                </h5>
+              </div>
+              <div style="display: flex; flex-direction: column;gap: 20px; width: 40%; ">
+                <button style="border:1px solid  #808080;border-radius: 50px;height: 35px;"><span style="color: #454545;font-weight: bold;">24</span></button>
+         <button style="border:1px solid  #808080;border-radius: 50px;height: 35px;"><span style="color: #454545;font-weight: bold;">24</span></button>
+         <button style="border:1px solid  #808080;border-radius: 50px;height: 35px;"><span style="color: #454545;font-weight: bold;">24</span></button>
+         <button style="border:1px solid  #808080;border-radius: 50px;height: 35px;"><span style="color: #454545;font-weight: bold;">24</span></button>
+         
+              </div>
+              <div style="display: flex; flex-direction: column;gap: 25px;width: 40%; ">
+              <h6 style="font-size: 18px; padding-left: 20px;">sqm</h6>
+              <h6 style="font-size: 18px; padding-left: 20px;">sqm</h6>
+              <h6 style="font-size: 18px; padding-left: 20px;">sqm</h6>
+              <h6 style="font-size: 18px; padding-left: 20px;">sqm</h6>
+              
+              </div>
+            </div>
+            <p style="margin-top: 30px;font-size: 15px; font-weight: 500;color:#808080">It does not work for me, <span style="font-weight: bold;color:#454545">Click here</span></p>
+          </div>
+        </div>
+        <!-- ------------------[  DIV 2  END ] ------------------------------->
+        <!------------------------------------ STEPPER START------------------------------------------------- -->
+        <div style="width: 25%; margin-top: 40px">
+          <div class="steps">
+            <div class="step">
+              <div class="step-header">
+                <div class="header">Modeling</div>
+              </div>
+
+              <div class="step-content one">
+                <!-- <button class="next-btn">Next</button> -->
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">Building</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">HVAC</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">Refurb</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">Renovation</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+            <div class="step minimized">
+              <div class="step-header">
+                <div class="header">Results</div>
+              </div>
+              <div class="step-content one">
+                <p class="next-btn stepper-btn">Modeling</p>
+                <p class="next-btn stepper-btn">Windows</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ----------------------------------STEPPER END------------------------------------------------------------ -->
+      </div>
+      <!-- -----------------------------------------------MODEL DELETE: PAGE END------------------------------------------------------------ -->
+      <!-- -----------------------------------------------FOOTER START------------------------------------------------------------ -->
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          background-color: black;
+          color: white;
+          height: 40px;
+        "
+      >
+        <p style="font-size: 10px; text-align: center; margin-top: 6px">
+          Copyright &copy; 2024. All rights reserved.
+        </p>
+      </div>
+      <!-- -----------------------------------------------FOOTER END------------------------------------------------------------ -->
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      let curOpen;
+
+      $(document).ready(function () {
+        curOpen = $(".step")[0];
+
+        $(".next-btn").on("click", function () {
+          let cur = $(this).closest(".step");
+          let next = $(cur).next();
+          $(cur).addClass("minimized");
+          setTimeout(function () {
+            $(next).removeClass("minimized");
+            curOpen = $(next);
+          }, 400);
+        });
+
+        $(".close-btn").on("click", function () {
+          let cur = $(this).closest(".step");
+          $(cur).addClass("minimized");
+          curOpen = null;
+        });
+
+        $(".step .step-content").on("click", function (e) {
+          e.stopPropagation();
+        });
+
+        $(".step").on("click", function () {
+          if (!$(this).hasClass("minimized")) {
+            curOpen = null;
+            $(this).addClass("minimized");
+          } else {
+            let next = $(this);
+            if (curOpen === null) {
+              curOpen = next;
+              $(curOpen).removeClass("minimized");
+            } else {
+              $(curOpen).addClass("minimized");
+              setTimeout(function () {
+                $(next).removeClass("minimized");
+                curOpen = $(next);
+              }, 300);
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
